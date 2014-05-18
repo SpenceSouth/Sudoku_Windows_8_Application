@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DAN8</Machine>
+    <WindowsUser>Danial</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\SolveSudoku.exe">
+      <PackagePath>SolveSudoku.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\SolveSudoku.pdb">
+      <PackagePath>SolveSudoku.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\background-clouds-320w.jpg">
+      <PackagePath>Assets\background-clouds-320w.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\background-clouds.jpg">
+      <PackagePath>Assets\background-clouds.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\WideLogo.scale-100.png">
+      <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Common\ReadMe.txt">
+      <PackagePath>Common\ReadMe.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\MainPage.xaml">
+      <PackagePath>MainPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\PageMain.xaml">
+      <PackagePath>PageMain.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

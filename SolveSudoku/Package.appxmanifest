@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="11282SimplyAdvanced.SolveSudoku" Publisher="CN=A76D225B-FC63-49EC-B43E-59C8DF48368A" Version="0.9.0.0" />
+  <Properties>
+    <DisplayName>Solve Sudoku</DisplayName>
+    <PublisherDisplayName>Simply Advanced</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="SolveSudoku.App">
+      <VisualElements DisplayName="Solve Sudoku" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Solve Sudoku. 1) Enter the numbers you have. 2) Press solve sudoku. 3) See answer." ForegroundText="dark" BackgroundColor="#464646">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\WideLogo.png" />
+        <SplashScreen Image="Assets\SplashScreen.png" />
+      </VisualElements>
+    </Application>
+  </Applications>
+</Package>

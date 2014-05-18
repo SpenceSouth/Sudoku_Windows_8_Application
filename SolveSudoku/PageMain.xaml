@@ -1,0 +1,260 @@
+﻿<common:LayoutAwarePage
+    x:Name="pageRoot"
+    x:Class="SolveSudoku.PageMain"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SolveSudoku"
+    xmlns:common="using:SolveSudoku.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">Solve Sudoku</x:String>
+
+        <!--Create a Style for a TextBlock that specifies that
+              the Width is 200, Height is 20, Margin is 4,
+              Background is LightBlue, and FontSize is 14.-->
+        <Style TargetType="TextBox" x:Key="TextBoxStyle">
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="InputScope" Value="Number"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
+                        <LinearGradientBrush.RelativeTransform>
+                            <RotateTransform CenterX="0.5" CenterY="0.5" Angle="90" />
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="White" Offset="0.0"/>
+                        <GradientStop Color="LightBlue" Offset="0.8"/>
+                        <GradientStop Color="Navy" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBox" x:Key="TextBoxStyleSnapped">
+            <Setter Property="MaxWidth" Value="30"/>
+            <Setter Property="MaxHeight" Value="30"/>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+            <Setter Property="InputScope" Value="Number"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
+                        <LinearGradientBrush.RelativeTransform>
+                            <RotateTransform CenterX="0.5" CenterY="0.5" Angle="90" />
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="White" Offset="0.0"/>
+                        <GradientStop Color="LightBlue" Offset="0.9"/>
+                        <GradientStop Color="Navy" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid x:Name="rootFrame" Style="{StaticResource LayoutRootStyle}">
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background-clouds.jpg"/>
+        </Grid.Background>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Back button and page title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}" Foreground="Black"/>
+        </Grid>
+
+        <Grid HorizontalAlignment="Left" Height="auto" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="auto">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <!--<ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>-->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <!--<RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>-->
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="textBox_11" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_11_GotFocus" KeyUp="textBox_11_KeyUp" TabIndex="1" />
+            <TextBox x:Name="textBox_12" Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_12_GotFocus" KeyUp="textBox_12_KeyUp" TabIndex="10" />
+            <TextBox x:Name="textBox_13" Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_13_GotFocus" KeyUp="textBox_13_KeyUp" TabIndex="19" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_14" Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_14_GotFocus" KeyUp="textBox_14_KeyUp" TabIndex="28" />
+            <TextBox x:Name="textBox_15" Grid.Row="5" Grid.Column="1" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_15_GotFocus" KeyUp="textBox_15_KeyUp" TabIndex="37" />
+            <TextBox x:Name="textBox_16" Grid.Row="6" Grid.Column="1" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_16_GotFocus" KeyUp="textBox_16_KeyUp" TabIndex="46" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_17" Grid.Row="7" Grid.Column="1" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_17_GotFocus" KeyUp="textBox_17_KeyUp" TabIndex="55" />
+            <TextBox x:Name="textBox_18" Grid.Row="8" Grid.Column="1" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_18_GotFocus" KeyUp="textBox_18_KeyUp" TabIndex="64" />
+            <TextBox x:Name="textBox_19" Grid.Row="9" Grid.Column="1" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_19_GotFocus" KeyUp="textBox_19_KeyUp" TabIndex="73" />
+
+            <TextBox x:Name="textBox_21" Grid.Row="1" Grid.Column="2" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_21_GotFocus" KeyUp="textBox_21_KeyUp" TabIndex="2"/>
+            <TextBox x:Name="textBox_22" Grid.Row="2" Grid.Column="2" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_22_GotFocus" KeyUp="textBox_22_KeyUp" TabIndex="11"/>
+            <TextBox x:Name="textBox_23" Grid.Row="3" Grid.Column="2" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_23_GotFocus" KeyUp="textBox_23_KeyUp" TabIndex="20" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_24" Grid.Row="4" Grid.Column="2" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_24_GotFocus" KeyUp="textBox_24_KeyUp" TabIndex="29"/>
+            <TextBox x:Name="textBox_25" Grid.Row="5" Grid.Column="2" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_25_GotFocus" KeyUp="textBox_25_KeyUp" TabIndex="38"/>
+            <TextBox x:Name="textBox_26" Grid.Row="6" Grid.Column="2" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_26_GotFocus" KeyUp="textBox_26_KeyUp" TabIndex="47" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_27" Grid.Row="7" Grid.Column="2" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_27_GotFocus" KeyUp="textBox_27_KeyUp" TabIndex="56"/>
+            <TextBox x:Name="textBox_28" Grid.Row="8" Grid.Column="2" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_28_GotFocus" KeyUp="textBox_28_KeyUp" TabIndex="65"/>
+            <TextBox x:Name="textBox_29" Grid.Row="9" Grid.Column="2" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_29_GotFocus" KeyUp="textBox_29_KeyUp" TabIndex="74"/>
+
+            <TextBox x:Name="textBox_31" Grid.Row="1" Grid.Column="3" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_31_GotFocus" KeyUp="textBox_31_KeyUp" TabIndex="3" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_32" Grid.Row="2" Grid.Column="3" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_32_GotFocus" KeyUp="textBox_32_KeyUp" TabIndex="12" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_33" Grid.Row="3" Grid.Column="3" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_33_GotFocus" KeyUp="textBox_33_KeyUp" TabIndex="21" Margin="1,1,4,4" />
+            <TextBox x:Name="textBox_34" Grid.Row="4" Grid.Column="3" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_34_GotFocus" KeyUp="textBox_34_KeyUp" TabIndex="30" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_35" Grid.Row="5" Grid.Column="3" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_35_GotFocus" KeyUp="textBox_35_KeyUp" TabIndex="39" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_36" Grid.Row="6" Grid.Column="3" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_36_GotFocus" KeyUp="textBox_36_KeyUp" TabIndex="48" Margin="1,1,4,4" />
+            <TextBox x:Name="textBox_37" Grid.Row="7" Grid.Column="3" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_37_GotFocus" KeyUp="textBox_37_KeyUp" TabIndex="57" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_38" Grid.Row="8" Grid.Column="3" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_38_GotFocus" KeyUp="textBox_38_KeyUp" TabIndex="66" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_39" Grid.Row="9" Grid.Column="3" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_39_GotFocus" KeyUp="textBox_39_KeyUp" TabIndex="75" Margin="1,1,4,1" />
+
+            <TextBox x:Name="textBox_41" Grid.Row="1" Grid.Column="4" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_41_GotFocus" KeyUp="textBox_41_KeyUp" TabIndex="4"/>
+            <TextBox x:Name="textBox_42" Grid.Row="2" Grid.Column="4" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_42_GotFocus" KeyUp="textBox_42_KeyUp" TabIndex="13"/>
+            <TextBox x:Name="textBox_43" Grid.Row="3" Grid.Column="4" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_43_GotFocus" KeyUp="textBox_43_KeyUp" TabIndex="22" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_44" Grid.Row="4" Grid.Column="4" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_44_GotFocus" KeyUp="textBox_44_KeyUp" TabIndex="31"/>
+            <TextBox x:Name="textBox_45" Grid.Row="5" Grid.Column="4" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_45_GotFocus" KeyUp="textBox_45_KeyUp" TabIndex="40"/>
+            <TextBox x:Name="textBox_46" Grid.Row="6" Grid.Column="4" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_46_GotFocus" KeyUp="textBox_46_KeyUp" TabIndex="49" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_47" Grid.Row="7" Grid.Column="4" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_47_GotFocus" KeyUp="textBox_47_KeyUp" TabIndex="58"/>
+            <TextBox x:Name="textBox_48" Grid.Row="8" Grid.Column="4" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_48_GotFocus" KeyUp="textBox_48_KeyUp" TabIndex="67"/>
+            <TextBox x:Name="textBox_49" Grid.Row="9" Grid.Column="4" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_49_GotFocus" KeyUp="textBox_49_KeyUp" TabIndex="76"/>
+
+            <TextBox x:Name="textBox_51" Grid.Row="1" Grid.Column="5" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_51_GotFocus" KeyUp="textBox_51_KeyUp" TabIndex="5"/>
+            <TextBox x:Name="textBox_52" Grid.Row="2" Grid.Column="5" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_52_GotFocus" KeyUp="textBox_52_KeyUp" TabIndex="14"/>
+            <TextBox x:Name="textBox_53" Grid.Row="3" Grid.Column="5" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_53_GotFocus" KeyUp="textBox_53_KeyUp" TabIndex="23" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_54" Grid.Row="4" Grid.Column="5" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_54_GotFocus" KeyUp="textBox_54_KeyUp" TabIndex="32"/>
+            <TextBox x:Name="textBox_55" Grid.Row="5" Grid.Column="5" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_55_GotFocus" KeyUp="textBox_55_KeyUp" TabIndex="41"/>
+            <TextBox x:Name="textBox_56" Grid.Row="6" Grid.Column="5" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_56_GotFocus" KeyUp="textBox_56_KeyUp" TabIndex="50" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_57" Grid.Row="7" Grid.Column="5" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_57_GotFocus" KeyUp="textBox_57_KeyUp" TabIndex="59"/>
+            <TextBox x:Name="textBox_58" Grid.Row="8" Grid.Column="5" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_58_GotFocus" KeyUp="textBox_58_KeyUp" TabIndex="68"/>
+            <TextBox x:Name="textBox_59" Grid.Row="9" Grid.Column="5" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_59_GotFocus" KeyUp="textBox_59_KeyUp" TabIndex="77"/>
+
+            <TextBox x:Name="textBox_61" Grid.Row="1" Grid.Column="6" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_61_GotFocus" KeyUp="textBox_61_KeyUp" TabIndex="6" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_62" Grid.Row="2" Grid.Column="6" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_62_GotFocus" KeyUp="textBox_62_KeyUp" TabIndex="15" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_63" Grid.Row="3" Grid.Column="6" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_63_GotFocus" KeyUp="textBox_63_KeyUp" TabIndex="24" Margin="1,1,4,4" />
+            <TextBox x:Name="textBox_64" Grid.Row="4" Grid.Column="6" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_64_GotFocus" KeyUp="textBox_64_KeyUp" TabIndex="33" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_65" Grid.Row="5" Grid.Column="6" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_65_GotFocus" KeyUp="textBox_65_KeyUp" TabIndex="42" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_66" Grid.Row="6" Grid.Column="6" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_66_GotFocus" KeyUp="textBox_66_KeyUp" TabIndex="51" Margin="1,1,4,4" />
+            <TextBox x:Name="textBox_67" Grid.Row="7" Grid.Column="6" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_67_GotFocus" KeyUp="textBox_67_KeyUp" TabIndex="60" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_68" Grid.Row="8" Grid.Column="6" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_68_GotFocus" KeyUp="textBox_68_KeyUp" TabIndex="69" Margin="1,1,4,1" />
+            <TextBox x:Name="textBox_69" Grid.Row="9" Grid.Column="6" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_69_GotFocus" KeyUp="textBox_69_KeyUp" TabIndex="78" Margin="1,1,4,1" />
+
+            <TextBox x:Name="textBox_71" Grid.Row="1" Grid.Column="7" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_71_GotFocus" KeyUp="textBox_71_KeyUp" TabIndex="7"/>
+            <TextBox x:Name="textBox_72" Grid.Row="2" Grid.Column="7" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_72_GotFocus" KeyUp="textBox_72_KeyUp" TabIndex="16"/>
+            <TextBox x:Name="textBox_73" Grid.Row="3" Grid.Column="7" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_73_GotFocus" KeyUp="textBox_73_KeyUp" TabIndex="25" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_74" Grid.Row="4" Grid.Column="7" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_74_GotFocus" KeyUp="textBox_74_KeyUp" TabIndex="34"/>
+            <TextBox x:Name="textBox_75" Grid.Row="5" Grid.Column="7" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_75_GotFocus" KeyUp="textBox_75_KeyUp" TabIndex="43"/>
+            <TextBox x:Name="textBox_76" Grid.Row="6" Grid.Column="7" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_76_GotFocus" KeyUp="textBox_76_KeyUp" TabIndex="52" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_77" Grid.Row="7" Grid.Column="7" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_77_GotFocus" KeyUp="textBox_77_KeyUp" TabIndex="61"/>
+            <TextBox x:Name="textBox_78" Grid.Row="8" Grid.Column="7" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_78_GotFocus" KeyUp="textBox_78_KeyUp" TabIndex="70"/>
+            <TextBox x:Name="textBox_79" Grid.Row="9" Grid.Column="7" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_79_GotFocus" KeyUp="textBox_79_KeyUp" TabIndex="79"/>
+
+            <TextBox x:Name="textBox_81" Grid.Row="1" Grid.Column="8" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_81_GotFocus" KeyUp="textBox_81_KeyUp" TabIndex="8"/>
+            <TextBox x:Name="textBox_82" Grid.Row="2" Grid.Column="8" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_82_GotFocus" KeyUp="textBox_82_KeyUp" TabIndex="17"/>
+            <TextBox x:Name="textBox_83" Grid.Row="3" Grid.Column="8" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_83_GotFocus" KeyUp="textBox_83_KeyUp" TabIndex="26" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_84" Grid.Row="4" Grid.Column="8" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_84_GotFocus" KeyUp="textBox_84_KeyUp" TabIndex="35"/>
+            <TextBox x:Name="textBox_85" Grid.Row="5" Grid.Column="8" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_85_GotFocus" KeyUp="textBox_85_KeyUp" TabIndex="44"/>
+            <TextBox x:Name="textBox_86" Grid.Row="6" Grid.Column="8" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_86_GotFocus" KeyUp="textBox_86_KeyUp" TabIndex="53" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_87" Grid.Row="7" Grid.Column="8" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_87_GotFocus" KeyUp="textBox_87_KeyUp" TabIndex="62"/>
+            <TextBox x:Name="textBox_88" Grid.Row="8" Grid.Column="8" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_88_GotFocus" KeyUp="textBox_88_KeyUp" TabIndex="71"/>
+            <TextBox x:Name="textBox_89" Grid.Row="9" Grid.Column="8" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_89_GotFocus" KeyUp="textBox_89_KeyUp" TabIndex="80"/>
+
+            <TextBox x:Name="textBox_91" Grid.Row="1" Grid.Column="9" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_91_GotFocus" KeyUp="textBox_91_KeyUp" TabIndex="9"/>
+            <TextBox x:Name="textBox_92" Grid.Row="2" Grid.Column="9" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_92_GotFocus" KeyUp="textBox_92_KeyUp" TabIndex="18"/>
+            <TextBox x:Name="textBox_93" Grid.Row="3" Grid.Column="9" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_93_GotFocus" KeyUp="textBox_93_KeyUp" TabIndex="27" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_94" Grid.Row="4" Grid.Column="9" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_94_GotFocus" KeyUp="textBox_94_KeyUp" TabIndex="36"/>
+            <TextBox x:Name="textBox_95" Grid.Row="5" Grid.Column="9" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_95_GotFocus" KeyUp="textBox_95_KeyUp" TabIndex="45"/>
+            <TextBox x:Name="textBox_96" Grid.Row="6" Grid.Column="9" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_96_GotFocus" KeyUp="textBox_96_KeyUp" TabIndex="54" Margin="1,1,1,4" />
+            <TextBox x:Name="textBox_97" Grid.Row="7" Grid.Column="9" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_97_GotFocus" KeyUp="textBox_97_KeyUp" TabIndex="63"/>
+            <TextBox x:Name="textBox_98" Grid.Row="8" Grid.Column="9" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_98_GotFocus" KeyUp="textBox_98_KeyUp" TabIndex="72"/>
+            <TextBox x:Name="textBox_99" Grid.Row="9" Grid.Column="9" Style="{StaticResource TextBoxStyle}" GotFocus="textBox_99_GotFocus" KeyUp="textBox_99_KeyUp" TabIndex="81"/>
+
+            <Button x:Name="button_SolveSudoku" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="5" Content="Solve" Foreground="Black" HorizontalAlignment="Center" Click="button_SolveSudoku_Click" Margin="0,20,0,0" />
+            <Button x:Name="button_ClearBoard" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="5" Content="Clear" Foreground="Black" HorizontalAlignment="Center" Click="button_ClearBoard_Click" Margin="0,20,0,0" />
+
+        </Grid>
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape"/>
+                <VisualState x:Name="Filled"/>
+
+                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!-- The back button and title have different styles when snapped -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</common:LayoutAwarePage>

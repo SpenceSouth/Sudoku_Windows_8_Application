@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DAN8</Machine>
+    <WindowsUser>Danial</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <RegisteredManifestChecksum>A832753F9D5EE690D96C69937008FCC3A4A5456515F7A8DAC962891F4F8E7B54</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>476a1b74-0e11-476f-b3bb-8ddf9c929266_1.0.0.0_neutral__nv1rq8x77a6tt</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>476a1b74-0e11-476f-b3bb-8ddf9c929266_nv1rq8x77a6tt!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>476a1b74-0e11-476f-b3bb-8ddf9c929266</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Danial</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-06-22T23:09:02.980</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\SolveSudoku.exe">
+      <PackagePath>SolveSudoku.exe</PackagePath>
+      <Modified>2013-06-22T23:21:04.103</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\SolveSudoku.pdb">
+      <PackagePath>SolveSudoku.pdb</PackagePath>
+      <Modified>2013-06-22T23:21:04.074</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\background-clouds-320w.jpg">
+      <PackagePath>Assets\background-clouds-320w.jpg</PackagePath>
+      <Modified>2013-06-22T22:41:25.499</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\background-clouds.jpg">
+      <PackagePath>Assets\background-clouds.jpg</PackagePath>
+      <Modified>2013-06-22T22:41:22.326</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-06-22T22:41:54.313</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-06-22T22:41:54.315</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-06-22T22:41:54.318</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-06-22T22:41:54.320</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Assets\WideLogo.scale-100.png">
+      <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
+      <Modified>2013-06-22T22:41:54.321</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\Common\ReadMe.txt">
+      <PackagePath>Common\ReadMe.txt</PackagePath>
+      <Modified>2013-06-22T22:36:53.347</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+      <Modified>2013-06-22T22:36:25.122</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+      <Modified>2012-06-26T23:19:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\MainPage.xaml">
+      <PackagePath>MainPage.xaml</PackagePath>
+      <Modified>2013-06-22T22:36:25.146</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\PageMain.xaml">
+      <PackagePath>PageMain.xaml</PackagePath>
+      <Modified>2013-06-22T23:20:26.030</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Danial\Documents\Programming\Windows 8\Apps\SolveSudoku\SolveSudoku\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2013-06-22T23:09:02.827</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
